@@ -20,7 +20,7 @@ data_processed <- read_csv("data/data_processed.csv")
 
 # Specify logistic regression model
 # Note: treatment is the variable name defining treatment groups
-psModel <- glm(treatment ~ age + sex + prior_diabetes + prior_cvd + bmi + deprivation_score , family=binomial(), data= data_processed) 
+psModel <- glm(treatment ~ age + sex + prior_copd + prior_cvd + bmi + deprivation_score , family=binomial(), data= data_processed) 
 
 # Append patient-level estimated propensity score (pscore) to data_processed 
 data_processed$pscore <- predict(psModel, type = "response")
